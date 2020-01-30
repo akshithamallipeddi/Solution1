@@ -133,14 +133,14 @@ namespace Assignment1_Spring2020
                 int s1 = (totalSecs - u * 45 * 60) / 45;
                 int f = (totalSecs - u * 45 * 60 - s1 * 45);
 
-                // Writing the USF clock time on Console
-                Console.WriteLine(u.ToString().PadLeft(2, '0') + ":" + s1.ToString().PadLeft(2, '0') + ":" + f.ToString().PadLeft(2, '0'));
+                // returning the USF time
+                return(u.ToString().PadLeft(2, '0') + ":" + s1.ToString().PadLeft(2, '0') + ":" + f.ToString().PadLeft(2, '0'));
             }
             catch
             {
                 Console.WriteLine("Exception Occured while computing UsfTime");
+                return null;
             }
-            return null;
         }
 
 
