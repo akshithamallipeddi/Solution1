@@ -190,21 +190,25 @@ namespace Assignment1_Spring2020
             List<string> s = new List<String>();
             try
             {
-                // Write your code here
+                // Loop through words in the array
                 for (int i = 0; i < words.Length; i++)
                 {
                     for (int j = i + 1; j < words.Length; j++)
                     {
+                        //Check if the concatination of words is a palindrome
                         if (CheckIfPalindrome(words[i], words[j]))
                         {
+                            //Add to output if true
                             s.Add("[" + i + "," + j + "]");
                         }
                         if (CheckIfPalindrome(words[j], words[i]))
                         {
+                            //Add to output if true
                             s.Add("[" + j + "," + i + "]");
                         }
                     }
                 }
+                //Print the list of pairs
                 Console.WriteLine("[{0}]", string.Join(",", s));
             }
             catch
@@ -214,11 +218,12 @@ namespace Assignment1_Spring2020
         }
 
         private static bool CheckIfPalindrome(string a, string b)
-        {
+        {           
             if (!String.IsNullOrEmpty(a) && !String.IsNullOrEmpty(b))
             {
                 string reverse = string.Empty;
                 string input = string.Concat(a, b);
+                //Logic to check if the string is palindrome
                 for (int i = input.Length - 1; i >= 0; i--)
                 {
                     reverse += input[i].ToString();
