@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helloworld", "Helloworld\He
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise2", "Exercise2\Exercise2.csproj", "{042CEF03-79A4-4394-8D9C-505ECB44A077}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment1_Spring2020", "Assignment1_Spring2020\Assignment1_Spring2020.csproj", "{9A574468-94D5-429D-805C-0D79362D611A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment1_Spring2020", "Assignment1_Spring2020\Assignment1_Spring2020.csproj", "{9A574468-94D5-429D-805C-0D79362D611A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "In_Class_Feb4", "In_Class_Feb4\In_Class_Feb4.csproj", "{3A755D63-EBB1-48DC-871B-C016D868571B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9A574468-94D5-429D-805C-0D79362D611A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A574468-94D5-429D-805C-0D79362D611A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A574468-94D5-429D-805C-0D79362D611A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A755D63-EBB1-48DC-871B-C016D868571B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A755D63-EBB1-48DC-871B-C016D868571B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A755D63-EBB1-48DC-871B-C016D868571B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A755D63-EBB1-48DC-871B-C016D868571B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
