@@ -288,6 +288,7 @@ namespace Assignment1_Spring2020
                         //Building the final output
                         foreach (var r in finalResult)
                         {
+                            //Printing only one set of moves
                             if (string.IsNullOrEmpty(finalOutput))
                                 Console.WriteLine($"One set of moves where I win:  [{string.Join(", ", r)}]");
                             if (!string.IsNullOrEmpty(finalOutput))
