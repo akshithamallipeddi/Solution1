@@ -87,6 +87,7 @@ namespace Assignment1_Spring2020
         {
             try
             {
+                //Boundary case
                 if (n2 <= 0)
                 {
                     //Print N/A if number less than or equal to 0 
@@ -121,8 +122,11 @@ namespace Assignment1_Spring2020
                 //Getting AM or PM from input string
                 string period = s.Substring(8, 2);
 
+                if (period.ToUpper() != "AM" && period.ToUpper() != "PM")
+                    throw new System.ArgumentException("Input Time string is in incorrect format", s); ;
                 //Calculating the Total number of seconds in the input string
                 int totalSecs = hours * 60 * 60 + mins * 60 + secs;
+
                 //Adding secs depending on period value
                 if (period == "PM")
                     totalSecs = totalSecs + 12 * 60 * 60;
@@ -134,11 +138,11 @@ namespace Assignment1_Spring2020
                 int f = (totalSecs - u * 45 * 60 - s1 * 45);
 
                 // returning the USF time
-                return(u.ToString().PadLeft(2, '0') + ":" + s1.ToString().PadLeft(2, '0') + ":" + f.ToString().PadLeft(2, '0'));
+                return (u.ToString().PadLeft(2, '0') + ":" + s1.ToString().PadLeft(2, '0') + ":" + f.ToString().PadLeft(2, '0'));
             }
             catch
             {
-                Console.WriteLine("Exception Occured while computing UsfTime");
+                Console.WriteLine("Input Time string is in incorrect format");
                 return null;
             }
         }
@@ -148,6 +152,13 @@ namespace Assignment1_Spring2020
         {
             try
             {
+                //Boundary case - Checking if input values are valid
+                if (n3 <= 0 || k <= 0)
+                {
+                    Console.WriteLine("Total number of integers and number of numbers per line should be greater than 0");
+                    return;
+                }
+
                 int a = 1;
                 int s = 1;
                 while (n3 > 0)
@@ -213,12 +224,12 @@ namespace Assignment1_Spring2020
             }
             catch
             {
-                Console.WriteLine("Exception occured while computing PalindromePairs()");
+                Console.WriteLine("Error while computing PalindromePairs()");
             }
         }
 
         private static bool CheckIfPalindrome(string a, string b)
-        {           
+        {
             if (!String.IsNullOrEmpty(a) && !String.IsNullOrEmpty(b))
             {
                 string reverse = string.Empty;
