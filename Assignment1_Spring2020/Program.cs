@@ -25,7 +25,7 @@ namespace Assignment1_Spring2020
             string t = UsfTime(s);
             Console.WriteLine(t);
 
-
+            Console.WriteLine();
             Console.WriteLine("Question 4 # Output");
             int n3 = 110;
             int k = 11;
@@ -38,7 +38,7 @@ namespace Assignment1_Spring2020
 
             Console.WriteLine();
             Console.WriteLine("Question 6 # Output");
-            Stones(5);
+            Stones(6);
         }
 
         private static StringBuilder sb = new StringBuilder();
@@ -257,35 +257,50 @@ namespace Assignment1_Spring2020
                 IEnumerable<IEnumerable<int>> finalResult = new List<List<int>>();
                 string finalOutput = "";
 
-                //Loop to get all the possible permutations of 1,2,3 and the last stone is picked by player 1
-                for (int i = 1; i < n4; i = i + 2)
+                //Boundary case if number of balls are less than 1
+                if (n4 < 1)
                 {
-                    //Get all permuations with total number of turns as 'i'
-                    IEnumerable<IEnumerable<int>> result = GetPermutations(Enumerable.Range(1, 3), i);
-
-                    //Only pick if sum == n4 and the sum of last 2 is greater than 3
-                    result = result.Where(t => t.Sum(a => Int32.Parse(a.ToString())) == n4 && t.Skip(i - 2).Sum(a => Int32.Parse(a.ToString())) > 3).Distinct();
-
-                    //Add the items to the finalResult
-                    foreach (var item in result)
-                        finalResult = finalResult.Append(item);
+                    Console.WriteLine("Not enough balls in the bag");
+                    return;
                 }
-                if (finalResult.Count() > 0)
+                //If the number of balls are 1, 2 or 3 - Player 1 wins by default
+                else if (n4 < 4)
                 {
-                    //Building the final output
-                    foreach (var r in finalResult)
+                    finalOutput = "[" + n4.ToString() + "]";
+                }
+                else
+                {
+                    //Loop to get all the possible permutations of 1,2,3 and the last stone is picked by player 1
+                    for (int i = 1; i < n4; i = i + 2)
                     {
-                        if (!string.IsNullOrEmpty(finalOutput))
-                            finalOutput += " or ";
-                        finalOutput += $"[{string.Join(", ", r)}]";
+                        //Get all permuations with total number of turns as 'i'
+                        IEnumerable<IEnumerable<int>> result = GetPermutations(Enumerable.Range(1, 3), i);
+
+                        //Only pick if sum == n4 and the sum of last 2 is greater than 3
+                        result = result.Where(t => t.Sum(a => Int32.Parse(a.ToString())) == n4 && t.Skip(i - 2).Sum(a => Int32.Parse(a.ToString())) > 3).Distinct();
+
+                        //Add the items to the finalResult
+                        foreach (var item in result)
+                            finalResult = finalResult.Append(item);
+                    }
+                    if (finalResult.Count() > 0)
+                    {
+                        //Building the final output
+                        foreach (var r in finalResult)
+                        {
+                            if (string.IsNullOrEmpty(finalOutput))
+                                Console.WriteLine($"One set of moves where I win:  [{string.Join(", ", r)}]");
+                            if (!string.IsNullOrEmpty(finalOutput))
+                                finalOutput += " or ";
+                            finalOutput += $"[{string.Join(", ", r)}]";
+                        }
                     }
                 }
-
-                //Printing the output
+                //Printing all the possible combinations
                 if (string.IsNullOrEmpty(finalOutput))
                     Console.WriteLine("false");
                 else
-                    Console.WriteLine(finalOutput);
+                    Console.WriteLine("All set of moves where I win: " +finalOutput);
             }
             catch
             {
